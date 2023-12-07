@@ -1,0 +1,12 @@
+version: '3'
+services:
+  client:
+    build: .
+    container_name: textfile-client-container
+    image: irehankhan/random-textfile-client:1.0
+    ports:
+      - "5010:5010"
+    volumes:
+      - clientvol:/clientdata
+volumes:
+  clientvol:
