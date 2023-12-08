@@ -5,7 +5,7 @@ services:
     container_name: textfile-client-container
     image: irehankhan/random-textfile-client:1.0
     ports:
-      - "5010:5010"
+      - "80:80"
     volumes:
       - clientvol:/clientdata
 volumes:
