@@ -1,9 +1,9 @@
 version: '3'
 services:
   client:
-    build: .
-    container_name: textfile-client-container
     image: irehankhan/random-textfile-client:1.0
+    container_name: textfile-client-container
+
     ports:
       - "80:80"
     volumes:

@@ -8,13 +8,10 @@ WORKDIR /app
 COPY . /app
 
 # Install any needed packages specified in requirements.txt
-RUN pip install --trusted-host pypi.python.org flask lorem
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Create a volume named "servervol" and mount it at "/serverdata" in the container
 VOLUME /clientdata
-
-# Make port 5010 available to the world outside this container
-# EXPOSE 5010
 
 # Run app.py when the container launches
 CMD ["python", "./client.py"]
