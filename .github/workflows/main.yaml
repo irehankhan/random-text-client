@@ -39,27 +39,18 @@ jobs:
           push: true
           tags: irehankhan/random-textfile-client:1.0
 
-      - name: Send Email Notification
-        uses: docker/login-action@v1
-        with:
-          password: ${{ secrets.EMAIL_PASSWORD }}
-        run: |
-            python - <<EOF
-            import smtplib
-            from email.mime.text import MIMEText
-  
-            sender_email = "irehankhan@yahoo.com"
-            receiver_email = "irehankhan@yahoo.com"
-            subject = "GitHub Action Notification"
-            body = "The GitHub Action workflow has been triggered on the main branch."
-  
-            msg = MIMEText(body)
-            msg["Subject"] = subject
-            msg["From"] = sender_email
-            msg["To"] = receiver_email
-  
-            with smtplib.SMTP("smtp.mail.yahoo.com", 587) as server:
-                server.starttls()
-                server.login(sender_email, ${{ secrets.EMAIL_PASSWORD }})
-                server.sendmail(sender_email, [receiver_email], msg.as_string())
-            EOF
+   
+
+  send_email:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Send email
+            uses: dawidd6/action-send-mail@v3
+            with:
+              server_address: smtp.gmail.com
+              server_port: 465
+              username: Rehan
+              subject: Workflow completed
+              body: The ${{github.workflow}} workflow has completed successfully!
+              to: irehankhan@yahoo.com
+              from: My GitHub Actions <noreply@gitactions.com>
