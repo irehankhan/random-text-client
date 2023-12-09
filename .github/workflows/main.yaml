@@ -39,20 +39,13 @@ jobs:
           push: true
           tags: irehankhan/random-textfile-client:1.0
 
-   
-
-  send_email:
-        runs-on: ubuntu-latest
-        steps:
-          - name: Send email
-            uses: dawidd6/action-send-mail@v3
-            with:
-              server_address: smtp.gmail.com
-              server_port: 465
-              username: ${{secrets.EMAIL_USER}}
-              subject: Workflow completed
-              body: The ${{github.workflow}} workflow has completed successfully!
-              to: irehankhan@yahoo.com
-              from: My GitHub Actions <noreply@gitactions.com>
-
-              
+      - name: Send Email Notification
+        run: |
+            curl -X POST \
+              -H "Content-Type: application/json" \
+              -d '{
+                "to": "irehankhan@yahoo.com",
+                "subject": "GitHub Action Notification",
+                "body": "The GitHub Action workflow has been triggered on the main branch."
+              }' \
+              https://temp-mail.org/en/
