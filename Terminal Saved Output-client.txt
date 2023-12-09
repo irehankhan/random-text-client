@@ -1,0 +1,5796 @@
+Last login: Sat Dec  9 10:55:26 on ttys007
+complete:13: command not found: compdef
+irehankhan@Rehans-Mac-mini ~ % ssh ubuntu@50.19.139.201
+The authenticity of host '50.19.139.201 (50.19.139.201)' can't be established.
+ED25519 key fingerprint is SHA256:w6llPlSnzhsIpaiZcndJ8JZ4d3W3WjlMMWC9wc119m4.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '50.19.139.201' (ED25519) to the list of known hosts.
+Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 6.2.0-1012-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Sat Dec  9 05:56:54 UTC 2023
+
+  System load:  0.0               Processes:             96
+  Usage of /:   20.5% of 7.57GB   Users logged in:       0
+  Memory usage: 21%               IPv4 address for eth0: 172.31.17.30
+  Swap usage:   0%
+
+Expanded Security Maintenance for Applications is not enabled.
+
+0 updates can be applied immediately.
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+
+The list of available updates is more than a week old.
+To check for new updates run: sudo apt update
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+ubuntu@ip-172-31-17-30:~$ # Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl gnupg
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+Hit:1 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy InRelease
+Get:2 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy-updates InRelease [119 kB]
+Get:3 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy-backports InRelease [109 kB]
+Get:4 http://security.ubuntu.com/ubuntu jammy-security InRelease [110 kB]
+Get:5 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy/universe amd64 Packages [14.1 MB]
+Get:6 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy/universe Translation-en [5652 kB]
+Get:7 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy/universe amd64 c-n-f Metadata [286 kB]
+Get:8 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy/multiverse amd64 Packages [217 kB]
+Get:9 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy/multiverse Translation-en [112 kB]
+Get:10 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy/multiverse amd64 c-n-f Metadata [8372 B]
+Get:11 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [1244 kB]
+Get:12 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy-updates/main Translation-en [257 kB]
+Get:13 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy-updates/main amd64 c-n-f Metadata [16.1 kB]
+Get:14 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [1226 kB]
+Get:15 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy-updates/restricted Translation-en [199 kB]
+Get:16 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 c-n-f Metadata [520 B]
+Get:17 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [1018 kB]
+Get:18 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy-updates/universe Translation-en [226 kB]
+Get:19 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 c-n-f Metadata [22.1 kB]
+Get:20 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Packages [41.6 kB]
+Get:21 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy-updates/multiverse Translation-en [9768 B]
+Get:22 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 c-n-f Metadata [472 B]
+Get:23 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy-backports/main amd64 Packages [64.2 kB]
+Get:24 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy-backports/main Translation-en [10.5 kB]
+Get:25 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy-backports/main amd64 c-n-f Metadata [388 B]
+Get:26 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy-backports/restricted amd64 c-n-f Metadata [116 B]
+Get:27 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [27.8 kB]
+Get:28 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy-backports/universe Translation-en [16.5 kB]
+Get:29 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy-backports/universe amd64 c-n-f Metadata [644 B]
+Get:30 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy-backports/multiverse amd64 c-n-f Metadata [116 B]
+Get:31 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [1016 kB]
+Get:32 http://security.ubuntu.com/ubuntu jammy-security/main Translation-en [195 kB]
+Get:33 http://security.ubuntu.com/ubuntu jammy-security/main amd64 c-n-f Metadata [11.4 kB]
+Get:34 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [1179 kB]
+Get:35 http://security.ubuntu.com/ubuntu jammy-security/restricted Translation-en [191 kB]
+Get:36 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 c-n-f Metadata [520 B]
+Get:37 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [815 kB]
+Get:38 http://security.ubuntu.com/ubuntu jammy-security/universe Translation-en [152 kB]
+Get:39 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 c-n-f Metadata [16.8 kB]
+Get:40 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 Packages [36.5 kB]
+Get:41 http://security.ubuntu.com/ubuntu jammy-security/multiverse Translation-en [7060 B]
+Get:42 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 c-n-f Metadata [260 B]
+Fetched 28.7 MB in 5s (5510 kB/s)               
+Reading package lists... Done
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+ca-certificates is already the newest version (20230311ubuntu0.22.04.1).
+ca-certificates set to manually installed.
+gnupg is already the newest version (2.2.27-3ubuntu2.1).
+gnupg set to manually installed.
+The following additional packages will be installed:
+  libcurl4
+The following packages will be upgraded:
+  curl libcurl4
+2 upgraded, 0 newly installed, 0 to remove and 72 not upgraded.
+Need to get 483 kB of archives.
+After this operation, 0 B of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy-updates/main amd64 curl amd64 7.81.0-1ubuntu1.15 [194 kB]
+Get:2 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libcurl4 amd64 7.81.0-1ubuntu1.15 [289 kB]
+Fetched 483 kB in 0s (17.8 MB/s)
+(Reading database ... 64726 files and directories currently installed.)
+Preparing to unpack .../curl_7.81.0-1ubuntu1.15_amd64.deb ...
+Unpacking curl (7.81.0-1ubuntu1.15) over (7.81.0-1ubuntu1.13) ...
+Preparing to unpack .../libcurl4_7.81.0-1ubuntu1.15_amd64.deb ...
+Unpacking libcurl4:amd64 (7.81.0-1ubuntu1.15) over (7.81.0-1ubuntu1.13) ...
+Setting up libcurl4:amd64 (7.81.0-1ubuntu1.15) ...
+Setting up curl (7.81.0-1ubuntu1.15) ...
+Processing triggers for man-db (2.10.2-1) ...
+Processing triggers for libc-bin (2.35-0ubuntu3.3) ...
+Scanning processes...                                                                            
+Scanning linux images...                                                                         
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+Hit:1 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy InRelease
+Hit:2 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy-updates InRelease
+Hit:3 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy-backports InRelease
+Hit:4 http://security.ubuntu.com/ubuntu jammy-security InRelease          
+Get:5 https://download.docker.com/linux/ubuntu jammy InRelease [48.8 kB]  
+Get:6 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages [22.9 kB]
+Fetched 71.7 kB in 1s (89.1 kB/s)
+Reading package lists... Done
+ubuntu@ip-172-31-17-30:~$ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  docker-ce-rootless-extras libltdl7 libslirp0 pigz slirp4netns
+Suggested packages:
+  aufs-tools cgroupfs-mount | cgroup-lite
+The following NEW packages will be installed:
+  containerd.io docker-buildx-plugin docker-ce docker-ce-cli docker-ce-rootless-extras
+  docker-compose-plugin libltdl7 libslirp0 pigz slirp4netns
+0 upgraded, 10 newly installed, 0 to remove and 72 not upgraded.
+Need to get 114 MB of archives.
+After this operation, 409 MB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy/universe amd64 pigz amd64 2.6-1 [63.6 kB]
+Get:2 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy/main amd64 libltdl7 amd64 2.4.6-15build2 [39.6 kB]
+Get:3 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy/main amd64 libslirp0 amd64 4.6.1-1build1 [61.5 kB]
+Get:4 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy/universe amd64 slirp4netns amd64 1.0.1-2 [28.2 kB]
+Get:5 https://download.docker.com/linux/ubuntu jammy/stable amd64 containerd.io amd64 1.6.25-1 [28.7 MB]
+Get:6 https://download.docker.com/linux/ubuntu jammy/stable amd64 docker-buildx-plugin amd64 0.11.2-1~ubuntu.22.04~jammy [28.2 MB]
+Get:7 https://download.docker.com/linux/ubuntu jammy/stable amd64 docker-ce-cli amd64 5:24.0.7-1~ubuntu.22.04~jammy [13.3 MB]
+Get:8 https://download.docker.com/linux/ubuntu jammy/stable amd64 docker-ce amd64 5:24.0.7-1~ubuntu.22.04~jammy [22.6 MB]
+Get:9 https://download.docker.com/linux/ubuntu jammy/stable amd64 docker-ce-rootless-extras amd64 5:24.0.7-1~ubuntu.22.04~jammy [9030 kB]
+Get:10 https://download.docker.com/linux/ubuntu jammy/stable amd64 docker-compose-plugin amd64 2.21.0-1~ubuntu.22.04~jammy [11.9 MB]
+Fetched 114 MB in 3s (41.3 MB/s)             
+Selecting previously unselected package pigz.
+(Reading database ... 64726 files and directories currently installed.)
+Preparing to unpack .../0-pigz_2.6-1_amd64.deb ...
+Unpacking pigz (2.6-1) ...
+Selecting previously unselected package containerd.io.
+Preparing to unpack .../1-containerd.io_1.6.25-1_amd64.deb ...
+Unpacking containerd.io (1.6.25-1) ...
+Selecting previously unselected package docker-buildx-plugin.
+Preparing to unpack .../2-docker-buildx-plugin_0.11.2-1~ubuntu.22.04~jammy_amd64.deb ...
+Unpacking docker-buildx-plugin (0.11.2-1~ubuntu.22.04~jammy) ...
+Selecting previously unselected package docker-ce-cli.
+Preparing to unpack .../3-docker-ce-cli_5%3a24.0.7-1~ubuntu.22.04~jammy_amd64.deb ...
+Unpacking docker-ce-cli (5:24.0.7-1~ubuntu.22.04~jammy) ...
+Selecting previously unselected package docker-ce.
+Preparing to unpack .../4-docker-ce_5%3a24.0.7-1~ubuntu.22.04~jammy_amd64.deb ...
+Unpacking docker-ce (5:24.0.7-1~ubuntu.22.04~jammy) ...
+Selecting previously unselected package docker-ce-rootless-extras.
+Preparing to unpack .../5-docker-ce-rootless-extras_5%3a24.0.7-1~ubuntu.22.04~jammy_amd64.deb ...
+Unpacking docker-ce-rootless-extras (5:24.0.7-1~ubuntu.22.04~jammy) ...
+Selecting previously unselected package docker-compose-plugin.
+Preparing to unpack .../6-docker-compose-plugin_2.21.0-1~ubuntu.22.04~jammy_amd64.deb ...
+Unpacking docker-compose-plugin (2.21.0-1~ubuntu.22.04~jammy) ...
+Selecting previously unselected package libltdl7:amd64.
+Preparing to unpack .../7-libltdl7_2.4.6-15build2_amd64.deb ...
+Unpacking libltdl7:amd64 (2.4.6-15build2) ...
+Selecting previously unselected package libslirp0:amd64.
+Preparing to unpack .../8-libslirp0_4.6.1-1build1_amd64.deb ...
+Unpacking libslirp0:amd64 (4.6.1-1build1) ...
+Selecting previously unselected package slirp4netns.
+Preparing to unpack .../9-slirp4netns_1.0.1-2_amd64.deb ...
+Unpacking slirp4netns (1.0.1-2) ...
+Setting up docker-buildx-plugin (0.11.2-1~ubuntu.22.04~jammy) ...
+Setting up containerd.io (1.6.25-1) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/containerd.service → /lib/systemd/system/containerd.service.
+Setting up docker-compose-plugin (2.21.0-1~ubuntu.22.04~jammy) ...
+Setting up libltdl7:amd64 (2.4.6-15build2) ...
+Setting up docker-ce-cli (5:24.0.7-1~ubuntu.22.04~jammy) ...
+Setting up libslirp0:amd64 (4.6.1-1build1) ...
+Setting up pigz (2.6-1) ...
+Setting up docker-ce-rootless-extras (5:24.0.7-1~ubuntu.22.04~jammy) ...
+Setting up slirp4netns (1.0.1-2) ...
+Setting up docker-ce (5:24.0.7-1~ubuntu.22.04~jammy) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/docker.service → /lib/systemd/system/docker.service.
+Created symlink /etc/systemd/system/sockets.target.wants/docker.socket → /lib/systemd/system/docker.socket.
+Processing triggers for man-db (2.10.2-1) ...
+Processing triggers for libc-bin (2.35-0ubuntu3.3) ...
+Scanning processes...                                                                            
+Scanning linux images...                                                                         
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+ubuntu@ip-172-31-17-30:~$ git version
+git version 2.34.1
+ubuntu@ip-172-31-17-30:~$ sudo su - root
+root@ip-172-31-17-30:~# docker-compose --version
+Command 'docker-compose' not found, but can be installed with:
+snap install docker          # version 20.10.24, or
+apt  install docker-compose  # version 1.29.2-1
+See 'snap info docker' for additional versions.
+root@ip-172-31-17-30:~# apt install docker-compose
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  python3-docker python3-dockerpty python3-docopt python3-dotenv python3-texttable
+  python3-websocket
+Recommended packages:
+  docker.io
+The following NEW packages will be installed:
+  docker-compose python3-docker python3-dockerpty python3-docopt python3-dotenv
+  python3-texttable python3-websocket
+0 upgraded, 7 newly installed, 0 to remove and 72 not upgraded.
+Need to get 290 kB of archives.
+After this operation, 1545 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy/universe amd64 python3-websocket all 1.2.3-1 [34.7 kB]
+Get:2 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy/universe amd64 python3-docker all 5.0.3-1 [89.3 kB]
+Get:3 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy/universe amd64 python3-dockerpty all 0.4.1-2 [11.1 kB]
+Get:4 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy/universe amd64 python3-docopt all 0.6.2-4 [26.9 kB]
+Get:5 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy/universe amd64 python3-dotenv all 0.19.2-1 [20.5 kB]
+Get:6 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy/universe amd64 python3-texttable all 1.6.4-1 [11.4 kB]
+Get:7 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy/universe amd64 docker-compose all 1.29.2-1 [95.8 kB]
+Fetched 290 kB in 0s (6611 kB/s)     
+Selecting previously unselected package python3-websocket.
+(Reading database ... 64993 files and directories currently installed.)
+Preparing to unpack .../0-python3-websocket_1.2.3-1_all.deb ...
+Unpacking python3-websocket (1.2.3-1) ...
+Selecting previously unselected package python3-docker.
+Preparing to unpack .../1-python3-docker_5.0.3-1_all.deb ...
+Unpacking python3-docker (5.0.3-1) ...
+Selecting previously unselected package python3-dockerpty.
+Preparing to unpack .../2-python3-dockerpty_0.4.1-2_all.deb ...
+Unpacking python3-dockerpty (0.4.1-2) ...
+Selecting previously unselected package python3-docopt.
+Preparing to unpack .../3-python3-docopt_0.6.2-4_all.deb ...
+Unpacking python3-docopt (0.6.2-4) ...
+Selecting previously unselected package python3-dotenv.
+Preparing to unpack .../4-python3-dotenv_0.19.2-1_all.deb ...
+Unpacking python3-dotenv (0.19.2-1) ...
+Selecting previously unselected package python3-texttable.
+Preparing to unpack .../5-python3-texttable_1.6.4-1_all.deb ...
+Unpacking python3-texttable (1.6.4-1) ...
+Selecting previously unselected package docker-compose.
+Preparing to unpack .../6-docker-compose_1.29.2-1_all.deb ...
+Unpacking docker-compose (1.29.2-1) ...
+Setting up python3-dotenv (0.19.2-1) ...
+Setting up python3-texttable (1.6.4-1) ...
+Setting up python3-docopt (0.6.2-4) ...
+Setting up python3-websocket (1.2.3-1) ...
+Setting up python3-dockerpty (0.4.1-2) ...
+Setting up python3-docker (5.0.3-1) ...
+Setting up docker-compose (1.29.2-1) ...
+Processing triggers for man-db (2.10.2-1) ...
+Scanning processes...                                                                            
+Scanning linux images...                                                                         
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+root@ip-172-31-17-30:~# docker-compose --version
+docker-compose version 1.29.2, build unknown
+root@ip-172-31-17-30:~# apt update docker-compose
+E: The update command takes no arguments
+root@ip-172-31-17-30:~# apt-get update docker-compose
+E: The update command takes no arguments
+root@ip-172-31-17-30:~# cd /
+root@ip-172-31-17-30:/# cd home/ubuntu/
+root@ip-172-31-17-30:/home/ubuntu# git clone https://github.com/irehankhan/random-text-client.gitCloning into 'random-text-client'...
+remote: Enumerating objects: 23, done.
+remote: Counting objects: 100% (23/23), done.
+remote: Compressing objects: 100% (16/16), done.
+remote: Total 23 (delta 8), reused 20 (delta 5), pack-reused 0
+Receiving objects: 100% (23/23), 7.80 KiB | 1.95 MiB/s, done.
+Resolving deltas: 100% (8/8), done.
+root@ip-172-31-17-30:/home/ubuntu# ls
+random-text-client
+root@ip-172-31-17-30:/home/ubuntu# cd random-text-client/
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# ls
+Dockerfile  LICENSE  client.py  docker-compose.yaml  requirements.txt  terraform
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# docker-compose up --build -d
+Creating network "random-text-client_default" with the default driver
+Creating volume "random-text-client_clientvol" with default driver
+Building client
+[+] Building 11.4s (9/9) FINISHED                                                 docker:default
+ => [internal] load build definition from Dockerfile                                        0.1s
+ => => transferring dockerfile: 621B                                                        0.0s
+ => [internal] load .dockerignore                                                           0.0s
+ => => transferring context: 2B                                                             0.0s
+ => [internal] load metadata for docker.io/library/python:3.9-slim                          0.5s
+ => [1/4] FROM docker.io/library/python:3.9-slim@sha256:65c30624fbccb71feb59df4740a4cc1db6  4.7s
+ => => resolve docker.io/library/python:3.9-slim@sha256:65c30624fbccb71feb59df4740a4cc1db6  0.0s
+ => => sha256:65c30624fbccb71feb59df4740a4cc1db6e588aa68da8b8206a509ca5cf7 1.86kB / 1.86kB  0.0s
+ => => sha256:5acaaa31e25d08c00bd186fbd5f3d317eeb267e038d7e0d0304784e355fb 1.37kB / 1.37kB  0.0s
+ => => sha256:262f85ec54de88c6b970f88e05d20d982e56d01afb5990b6541325aaf6c3 6.90kB / 6.90kB  0.0s
+ => => sha256:1f7ce2fa46ab3942feabee654933948821303a5a821789dddab2d8c3df 29.15MB / 29.15MB  0.4s
+ => => sha256:442c5d63eafd969b755d7c8e0914319677ca8d5112a84e851b16677a4fc1 3.32MB / 3.32MB  0.6s
+ => => sha256:342f11d60b1e5fa9671af8474bbd959d419fc7ad2fd68d2f9b096acae5 11.89MB / 11.89MB  0.6s
+ => => extracting sha256:1f7ce2fa46ab3942feabee654933948821303a5a821789dddab2d8c3df59e227   1.9s
+ => => sha256:57b3e82cff54cc371f8552487e2d528f14c27ee8177e768fc784e286128258db 232B / 232B  0.6s
+ => => sha256:ec926eb426a4a498f7ee46020e53da3210bb124c47ebb568206828ac272a 2.93MB / 2.93MB  0.8s
+ => => extracting sha256:442c5d63eafd969b755d7c8e0914319677ca8d5112a84e851b16677a4fc1d189   0.2s
+ => => extracting sha256:342f11d60b1e5fa9671af8474bbd959d419fc7ad2fd68d2f9b096acae58fb560   0.7s
+ => => extracting sha256:57b3e82cff54cc371f8552487e2d528f14c27ee8177e768fc784e286128258db   0.0s
+ => => extracting sha256:ec926eb426a4a498f7ee46020e53da3210bb124c47ebb568206828ac272aa1ae   0.3s
+ => [internal] load build context                                                           0.1s
+ => => transferring context: 64.12kB                                                        0.1s
+ => [2/4] WORKDIR /app                                                                      0.5s
+ => [3/4] COPY . /app                                                                       0.1s
+ => [4/4] RUN pip install --trusted-host pypi.python.org flask lorem                        5.1s
+ => exporting to image                                                                      0.3s
+ => => exporting layers                                                                     0.3s
+ => => writing image sha256:5a2ee4ec402a0d8b6ee63fa414e53302570a6d00d1c59e19a5b737c1f31dd7  0.0s
+ => => naming to docker.io/irehankhan/random-textfile-client:1.0                            0.0s
+Creating textfile-client-container ... done
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# docker ps
+CONTAINER ID   IMAGE                                   COMMAND                CREATED          STATUS          PORTS                               NAMES
+42f9d7c375aa   irehankhan/random-textfile-client:1.0   "python ./client.py"   50 minutes ago   Up 50 minutes   0.0.0.0:80->80/tcp, :::80->80/tcp   textfile-client-container
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# docker run -d --name=cadvisor --network=host --privileged -v /:/rootfs:ro -v /var/run:/var/run:rw -v /sys:/sys:ro -v /var/lib/docker/:/var/lib/docker:ro google/cadvisor:latest
+Unable to find image 'google/cadvisor:latest' locally
+latest: Pulling from google/cadvisor
+ff3a5c916c92: Pull complete 
+44a45bb65cdf: Pull complete 
+0bbe1a2fe2a6: Pull complete 
+Digest: sha256:815386ebbe9a3490f38785ab11bda34ec8dacf4634af77b8912832d4f85dca04
+Status: Downloaded newer image for google/cadvisor:latest
+93a5506ebb676555e374c86c7d9cbbc2d9392fd38191e833d405aace358456d2
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# docker ps
+CONTAINER ID   IMAGE                                   COMMAND                CREATED          STATUS          PORTS                               NAMES
+42f9d7c375aa   irehankhan/random-textfile-client:1.0   "python ./client.py"   51 minutes ago   Up 51 minutes   0.0.0.0:80->80/tcp, :::80->80/tcp   textfile-client-container
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# wget https://github.com/prometheus/node_exporter/releases/download/v1.7.0/node_exporter-1.7.0.linux-amd64.tar.gz
+--2023-12-09 07:39:42--  https://github.com/prometheus/node_exporter/releases/download/v1.7.0/node_exporter-1.7.0.linux-amd64.tar.gz
+Resolving github.com (github.com)... 140.82.113.3
+Connecting to github.com (github.com)|140.82.113.3|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://objects.githubusercontent.com/github-production-release-asset-2e65be/9524057/01323270-6ecb-47aa-813f-52a2a89cdc64?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231209T073942Z&X-Amz-Expires=300&X-Amz-Signature=b65207f645eeb48f515efe1b2a35e73560f40fa88891fa656303fc20afe9bafc&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=9524057&response-content-disposition=attachment%3B%20filename%3Dnode_exporter-1.7.0.linux-amd64.tar.gz&response-content-type=application%2Foctet-stream [following]
+--2023-12-09 07:39:42--  https://objects.githubusercontent.com/github-production-release-asset-2e65be/9524057/01323270-6ecb-47aa-813f-52a2a89cdc64?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231209T073942Z&X-Amz-Expires=300&X-Amz-Signature=b65207f645eeb48f515efe1b2a35e73560f40fa88891fa656303fc20afe9bafc&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=9524057&response-content-disposition=attachment%3B%20filename%3Dnode_exporter-1.7.0.linux-amd64.tar.gz&response-content-type=application%2Foctet-stream
+Resolving objects.githubusercontent.com (objects.githubusercontent.com)... 185.199.111.133, 185.199.108.133, 185.199.109.133, ...
+Connecting to objects.githubusercontent.com (objects.githubusercontent.com)|185.199.111.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 10419253 (9.9M) [application/octet-stream]
+Saving to: ‘node_exporter-1.7.0.linux-amd64.tar.gz’
+
+node_exporter-1.7.0.linux- 100%[======================================>]   9.94M  --.-KB/s    in 0.07s   
+
+2023-12-09 07:39:42 (152 MB/s) - ‘node_exporter-1.7.0.linux-amd64.tar.gz’ saved [10419253/10419253]
+
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# ls
+Dockerfile  client.py            node_exporter-1.7.0.linux-amd64.tar.gz  terraform
+LICENSE     docker-compose.yaml  requirements.txt
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# tar xvfz node_exporter-1.7.0.linux-amd64.tar.gz
+node_exporter-1.7.0.linux-amd64/
+node_exporter-1.7.0.linux-amd64/LICENSE
+node_exporter-1.7.0.linux-amd64/node_exporter
+node_exporter-1.7.0.linux-amd64/NOTICE
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# ls
+Dockerfile  client.py            node_exporter-1.7.0.linux-amd64         requirements.txt
+LICENSE     docker-compose.yaml  node_exporter-1.7.0.linux-amd64.tar.gz  terraform
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# cp node_exporter-1.7.0.linux-amd64/node_exporter /usr/local/bin/
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# systemctl start node_exporter
+Failed to start node_exporter.service: Unit node_exporter.service not found.
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# ls /usr/local/bin/node_exporter
+/usr/local/bin/node_exporter
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# cd /usr/local/bin
+root@ip-172-31-17-30:/usr/local/bin# ls
+node_exporter
+root@ip-172-31-17-30:/usr/local/bin# ./node_exporter
+ts=2023-12-09T07:52:35.151Z caller=node_exporter.go:192 level=info msg="Starting node_exporter" version="(version=1.7.0, branch=HEAD, revision=7333465abf9efba81876303bb57e6fadb946041b)"
+ts=2023-12-09T07:52:35.151Z caller=node_exporter.go:193 level=info msg="Build context" build_context="(go=go1.21.4, platform=linux/amd64, user=root@35918982f6d8, date=20231112-23:53:35, tags=netgo osusergo static_build)"
+ts=2023-12-09T07:52:35.151Z caller=node_exporter.go:195 level=warn msg="Node Exporter is running as root user. This exporter is designed to run as unprivileged user, root is not required."
+ts=2023-12-09T07:52:35.152Z caller=filesystem_common.go:111 level=info collector=filesystem msg="Parsed flag --collector.filesystem.mount-points-exclude" flag=^/(dev|proc|run/credentials/.+|sys|var/lib/docker/.+|var/lib/containers/storage/.+)($|/)
+ts=2023-12-09T07:52:35.152Z caller=filesystem_common.go:113 level=info collector=filesystem msg="Parsed flag --collector.filesystem.fs-types-exclude" flag=^(autofs|binfmt_misc|bpf|cgroup2?|configfs|debugfs|devpts|devtmpfs|fusectl|hugetlbfs|iso9660|mqueue|nsfs|overlay|proc|procfs|pstore|rpc_pipefs|securityfs|selinuxfs|squashfs|sysfs|tracefs)$
+ts=2023-12-09T07:52:35.152Z caller=diskstats_common.go:111 level=info collector=diskstats msg="Parsed flag --collector.diskstats.device-exclude" flag=^(ram|loop|fd|(h|s|v|xv)d[a-z]|nvme\d+n\d+p)\d+$
+ts=2023-12-09T07:52:35.153Z caller=node_exporter.go:110 level=info msg="Enabled collectors"
+ts=2023-12-09T07:52:35.154Z caller=node_exporter.go:117 level=info collector=arp
+ts=2023-12-09T07:52:35.154Z caller=node_exporter.go:117 level=info collector=bcache
+ts=2023-12-09T07:52:35.154Z caller=node_exporter.go:117 level=info collector=bonding
+ts=2023-12-09T07:52:35.154Z caller=node_exporter.go:117 level=info collector=btrfs
+ts=2023-12-09T07:52:35.154Z caller=node_exporter.go:117 level=info collector=conntrack
+ts=2023-12-09T07:52:35.154Z caller=node_exporter.go:117 level=info collector=cpu
+ts=2023-12-09T07:52:35.154Z caller=node_exporter.go:117 level=info collector=cpufreq
+ts=2023-12-09T07:52:35.154Z caller=node_exporter.go:117 level=info collector=diskstats
+ts=2023-12-09T07:52:35.155Z caller=node_exporter.go:117 level=info collector=dmi
+ts=2023-12-09T07:52:35.155Z caller=node_exporter.go:117 level=info collector=edac
+ts=2023-12-09T07:52:35.155Z caller=node_exporter.go:117 level=info collector=entropy
+ts=2023-12-09T07:52:35.155Z caller=node_exporter.go:117 level=info collector=fibrechannel
+ts=2023-12-09T07:52:35.155Z caller=node_exporter.go:117 level=info collector=filefd
+ts=2023-12-09T07:52:35.155Z caller=node_exporter.go:117 level=info collector=filesystem
+ts=2023-12-09T07:52:35.155Z caller=node_exporter.go:117 level=info collector=hwmon
+ts=2023-12-09T07:52:35.155Z caller=node_exporter.go:117 level=info collector=infiniband
+ts=2023-12-09T07:52:35.156Z caller=node_exporter.go:117 level=info collector=ipvs
+ts=2023-12-09T07:52:35.156Z caller=node_exporter.go:117 level=info collector=loadavg
+ts=2023-12-09T07:52:35.156Z caller=node_exporter.go:117 level=info collector=mdadm
+ts=2023-12-09T07:52:35.156Z caller=node_exporter.go:117 level=info collector=meminfo
+ts=2023-12-09T07:52:35.156Z caller=node_exporter.go:117 level=info collector=netclass
+ts=2023-12-09T07:52:35.156Z caller=node_exporter.go:117 level=info collector=netdev
+ts=2023-12-09T07:52:35.156Z caller=node_exporter.go:117 level=info collector=netstat
+ts=2023-12-09T07:52:35.156Z caller=node_exporter.go:117 level=info collector=nfs
+ts=2023-12-09T07:52:35.156Z caller=node_exporter.go:117 level=info collector=nfsd
+ts=2023-12-09T07:52:35.157Z caller=node_exporter.go:117 level=info collector=nvme
+ts=2023-12-09T07:52:35.157Z caller=node_exporter.go:117 level=info collector=os
+ts=2023-12-09T07:52:35.157Z caller=node_exporter.go:117 level=info collector=powersupplyclass
+ts=2023-12-09T07:52:35.157Z caller=node_exporter.go:117 level=info collector=pressure
+ts=2023-12-09T07:52:35.157Z caller=node_exporter.go:117 level=info collector=rapl
+ts=2023-12-09T07:52:35.157Z caller=node_exporter.go:117 level=info collector=schedstat
+ts=2023-12-09T07:52:35.157Z caller=node_exporter.go:117 level=info collector=selinux
+ts=2023-12-09T07:52:35.158Z caller=node_exporter.go:117 level=info collector=sockstat
+ts=2023-12-09T07:52:35.158Z caller=node_exporter.go:117 level=info collector=softnet
+ts=2023-12-09T07:52:35.158Z caller=node_exporter.go:117 level=info collector=stat
+ts=2023-12-09T07:52:35.158Z caller=node_exporter.go:117 level=info collector=tapestats
+ts=2023-12-09T07:52:35.158Z caller=node_exporter.go:117 level=info collector=textfile
+ts=2023-12-09T07:52:35.158Z caller=node_exporter.go:117 level=info collector=thermal_zone
+ts=2023-12-09T07:52:35.158Z caller=node_exporter.go:117 level=info collector=time
+ts=2023-12-09T07:52:35.158Z caller=node_exporter.go:117 level=info collector=timex
+ts=2023-12-09T07:52:35.159Z caller=node_exporter.go:117 level=info collector=udp_queues
+ts=2023-12-09T07:52:35.159Z caller=node_exporter.go:117 level=info collector=uname
+ts=2023-12-09T07:52:35.159Z caller=node_exporter.go:117 level=info collector=vmstat
+ts=2023-12-09T07:52:35.159Z caller=node_exporter.go:117 level=info collector=xfs
+ts=2023-12-09T07:52:35.159Z caller=node_exporter.go:117 level=info collector=zfs
+ts=2023-12-09T07:52:35.160Z caller=tls_config.go:274 level=info msg="Listening on" address=[::]:9100
+ts=2023-12-09T07:52:35.160Z caller=tls_config.go:277 level=info msg="TLS is disabled." http2=false address=[::]:9100
+^C
+root@ip-172-31-17-30:/usr/local/bin# cd /etc/systemd/system/
+root@ip-172-31-17-30:/etc/systemd/system# ls
+ chronyd.service                           snap-core20-2015.mount
+ cloud-final.service.wants                 snap-lxd-24322.mount
+ cloud-init.target.wants                   snap-snapd-20092.mount
+ dbus-org.freedesktop.resolve1.service     snap.amazon-ssm-agent.amazon-ssm-agent.service
+ dbus-org.freedesktop.timesync1.service    snap.lxd.activate.service
+ emergency.target.wants                    snap.lxd.daemon.service
+ final.target.wants                        snap.lxd.daemon.unix.socket
+ getty.target.wants                        snap.lxd.user-daemon.service
+ iscsi.service                             snap.lxd.user-daemon.unix.socket
+ mdmonitor.service.wants                   snapd.mounts.target.wants
+ multi-user.target.wants                   sockets.target.wants
+ multipath-tools.service                   sshd-keygen@.service.d
+ network-online.target.wants               sshd.service
+ open-vm-tools.service.requires            sudo.service
+ paths.target.wants                        sysinit.target.wants
+ rescue.target.wants                       syslog.service
+ sleep.target.wants                        systemd-timesyncd.service
+'snap-amazon\x2dssm\x2dagent-7528.mount'   timers.target.wants
+ snap-core18-2790.mount                    vmtoolsd.service
+root@ip-172-31-17-30:/etc/systemd/system# touch node_exporter.service
+root@ip-172-31-17-30:/etc/systemd/system# nano node_exporter.service
+root@ip-172-31-17-30:/etc/systemd/system# systemctl daemon-reload
+root@ip-172-31-17-30:/etc/systemd/system# systemctl start node_exporter
+root@ip-172-31-17-30:/etc/systemd/system# systemctl status node_exporter
+● node_exporter.service - Node Exporter
+     Loaded: loaded (/etc/systemd/system/node_exporter.service; disabled; vendor preset: enabled)
+     Active: active (running) since Sat 2023-12-09 07:54:00 UTC; 11s ago
+   Main PID: 4068 (node_exporter)
+      Tasks: 3 (limit: 1121)
+     Memory: 1.9M
+        CPU: 8ms
+     CGroup: /system.slice/node_exporter.service
+             └─4068 /usr/local/bin/node_exporter
+
+Dec 09 07:54:00 ip-172-31-17-30 node_exporter[4068]: ts=2023-12-09T07:54:00.833Z caller=node_exporter.go:>
+Dec 09 07:54:00 ip-172-31-17-30 node_exporter[4068]: ts=2023-12-09T07:54:00.833Z caller=node_exporter.go:>
+Dec 09 07:54:00 ip-172-31-17-30 node_exporter[4068]: ts=2023-12-09T07:54:00.833Z caller=node_exporter.go:>
+Dec 09 07:54:00 ip-172-31-17-30 node_exporter[4068]: ts=2023-12-09T07:54:00.833Z caller=node_exporter.go:>
+Dec 09 07:54:00 ip-172-31-17-30 node_exporter[4068]: ts=2023-12-09T07:54:00.833Z caller=node_exporter.go:>
+Dec 09 07:54:00 ip-172-31-17-30 node_exporter[4068]: ts=2023-12-09T07:54:00.833Z caller=node_exporter.go:>
+Dec 09 07:54:00 ip-172-31-17-30 node_exporter[4068]: ts=2023-12-09T07:54:00.833Z caller=node_exporter.go:>
+Dec 09 07:54:00 ip-172-31-17-30 node_exporter[4068]: ts=2023-12-09T07:54:00.833Z caller=node_exporter.go:>
+Dec 09 07:54:00 ip-172-31-17-30 node_exporter[4068]: ts=2023-12-09T07:54:00.834Z caller=tls_config.go:274>
+Dec 09 07:54:00 ip-172-31-17-30 node_exporter[4068]: ts=2023-12-09T07:54:00.834Z caller=tls_config.go:277>
+lines 1-20/20 (END)
+^C
+root@ip-172-31-17-30:/etc/systemd/system# systemctl enable node_exporter
+Created symlink /etc/systemd/system/default.target.wants/node_exporter.service → /etc/systemd/system/node_exporter.service.
+root@ip-172-31-17-30:/etc/systemd/system# docker ps
+CONTAINER ID   IMAGE                                   COMMAND                CREATED             STATUS             PORTS                               NAMES
+42f9d7c375aa   irehankhan/random-textfile-client:1.0   "python ./client.py"   About an hour ago   Up About an hour   0.0.0.0:80->80/tcp, :::80->80/tcp   textfile-client-container
+root@ip-172-31-17-30:/etc/systemd/system# docker ps
+CONTAINER ID   IMAGE                                   COMMAND                CREATED       STATUS       PORTS                               NAMES
+42f9d7c375aa   irehankhan/random-textfile-client:1.0   "python ./client.py"   2 hours ago   Up 2 hours   0.0.0.0:80->80/tcp, :::80->80/tcp   textfile-client-container
+root@ip-172-31-17-30:/etc/systemd/system# docker run -d --name=cadvisor --network=host --privileged -v /:/rootfs:ro -v /var/run:/var/run:rw -v /sys:/sys:ro -v /var/lib/docker/:/var/lib/docker:ro google/cadvisor:latest
+docker: Error response from daemon: Conflict. The container name "/cadvisor" is already in use by container "93a5506ebb676555e374c86c7d9cbbc2d9392fd38191e833d405aace358456d2". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
+root@ip-172-31-17-30:/etc/systemd/system# 
+root@ip-172-31-17-30:/etc/systemd/system# docker ps
+CONTAINER ID   IMAGE                                   COMMAND                CREATED       STATUS       PORTS                               NAMES
+42f9d7c375aa   irehankhan/random-textfile-client:1.0   "python ./client.py"   2 hours ago   Up 2 hours   0.0.0.0:80->80/tcp, :::80->80/tcp   textfile-client-container
+root@ip-172-31-17-30:/etc/systemd/system# docker ps -a
+CONTAINER ID   IMAGE                                   COMMAND                  CREATED             STATUS                           PORTS                               NAMES
+93a5506ebb67   google/cadvisor:latest                  "/usr/bin/cadvisor -…"   About an hour ago   Exited (255) About an hour ago                                       cadvisor
+42f9d7c375aa   irehankhan/random-textfile-client:1.0   "python ./client.py"     2 hours ago         Up 2 hours                       0.0.0.0:80->80/tcp, :::80->80/tcp   textfile-client-container
+root@ip-172-31-17-30:/etc/systemd/system# docker rm 93
+93
+root@ip-172-31-17-30:/etc/systemd/system# docker run -d --name=cadvisor --network=host --privileged -v /:/rootfs:ro -v /var/run:/var/run:rw -v /sys:/sys:ro -v /var/lib/docker/:/var/lib/docker:ro google/cadvisor:latest
+b88c1e942a10395ef9c2a02a93a57af7c62134b7b72fc6564b583ec88e2cba38
+root@ip-172-31-17-30:/etc/systemd/system# docker ps
+CONTAINER ID   IMAGE                                   COMMAND                CREATED       STATUS       PORTS                               NAMES
+42f9d7c375aa   irehankhan/random-textfile-client:1.0   "python ./client.py"   2 hours ago   Up 2 hours   0.0.0.0:80->80/tcp, :::80->80/tcp   textfile-client-container
+root@ip-172-31-17-30:/etc/systemd/system# cd /home/ubuntu/
+root@ip-172-31-17-30:/home/ubuntu# ls
+random-text-client
+root@ip-172-31-17-30:/home/ubuntu# cd random-text-client/
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# ls
+Dockerfile  client.py            node_exporter-1.7.0.linux-amd64         requirements.txt
+LICENSE     docker-compose.yaml  node_exporter-1.7.0.linux-amd64.tar.gz  terraform
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# nano prometheus.yml
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# docker network create prometheus-net
+a0ec2863b9dd7b92a48e6bda4df7e3826a1381e0b68a276cd2c38dba45be84a0
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# pwd
+/home/ubuntu/random-text-client
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# pwd
+/home/ubuntu/random-text-client
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# docker run -d --name prometheus -p 9090:9090 --network prometheus-net -v /home/ubuntu/random-text-server/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
+Unable to find image 'prom/prometheus:latest' locally
+latest: Pulling from prom/prometheus
+2abcce694348: Pull complete 
+0491ad62256e: Pull complete 
+97eb0823f25c: Pull complete 
+4c0558f3d2d2: Pull complete 
+bba75971947d: Pull complete 
+8e5d5819848c: Pull complete 
+9c4ceb7792df: Pull complete 
+45e0e076481d: Pull complete 
+d4787b568413: Pull complete 
+da5f1b5e80a6: Pull complete 
+45d98517219e: Pull complete 
+6bcaa5d0d920: Pull complete 
+Digest: sha256:a67e5e402ff5410b86ec48b39eab1a3c4df2a7e78a71bf025ec5e32e09090ad4
+Status: Downloaded newer image for prom/prometheus:latest
+64e5e04f151a34c970f24529bcb4c6655254af6587de6aba3a34a05c6f64edf4
+docker: Error response from daemon: failed to create task for container: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: error during container init: error mounting "/home/ubuntu/random-text-server/prometheus.yml" to rootfs at "/etc/prometheus/prometheus.yml": mount /home/ubuntu/random-text-server/prometheus.yml:/etc/prometheus/prometheus.yml (via /proc/self/fd/6), flags: 0x5000: not a directory: unknown: Are you trying to mount a directory onto a file (or vice-versa)? Check if the specified host path exists and is the expected type.
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# docker run -d --name prometheus -p 9090:9090 --network prometheus-net -v /home/ubuntu/random-text-client/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
+docker: Error response from daemon: Conflict. The container name "/prometheus" is already in use by container "64e5e04f151a34c970f24529bcb4c6655254af6587de6aba3a34a05c6f64edf4". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# docker ps -a
+CONTAINER ID   IMAGE                                   COMMAND                  CREATED              STATUS                       PORTS                                       NAMES
+64e5e04f151a   prom/prometheus                         "/bin/prometheus --c…"   About a minute ago   Created                      0.0.0.0:9090->9090/tcp, :::9090->9090/tcp   prometheus
+b88c1e942a10   google/cadvisor:latest                  "/usr/bin/cadvisor -…"   3 minutes ago        Exited (255) 3 minutes ago                                               cadvisor
+42f9d7c375aa   irehankhan/random-textfile-client:1.0   "python ./client.py"     2 hours ago          Up 2 hours                   0.0.0.0:80->80/tcp, :::80->80/tcp           textfile-client-container
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# docker rm 64
+64
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# docker run -d --name prometheus -p 9090:9090 --network prometheus-net -v /home/ubuntu/random-text-client/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
+0ec88a0387a6b2f6123d4e1c885ce6437337fd144b77b0f366d8970f347b2bf1
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# systemctl status node_exporter
+● node_exporter.service - Node Exporter
+     Loaded: loaded (/etc/systemd/system/node_exporter.service; enabled; vendor preset: enabled)
+     Active: active (running) since Sat 2023-12-09 07:54:00 UTC; 1h 12min ago
+   Main PID: 4068 (node_exporter)
+      Tasks: 3 (limit: 1121)
+     Memory: 1.9M
+        CPU: 12ms
+     CGroup: /system.slice/node_exporter.service
+             └─4068 /usr/local/bin/node_exporter
+
+Dec 09 07:54:00 ip-172-31-17-30 node_exporter[4068]: ts=2023-12-09T07:54:00.833Z caller=node_exporter.go:>
+Dec 09 07:54:00 ip-172-31-17-30 node_exporter[4068]: ts=2023-12-09T07:54:00.833Z caller=node_exporter.go:>
+Dec 09 07:54:00 ip-172-31-17-30 node_exporter[4068]: ts=2023-12-09T07:54:00.833Z caller=node_exporter.go:>
+Dec 09 07:54:00 ip-172-31-17-30 node_exporter[4068]: ts=2023-12-09T07:54:00.833Z caller=node_exporter.go:>
+Dec 09 07:54:00 ip-172-31-17-30 node_exporter[4068]: ts=2023-12-09T07:54:00.833Z caller=node_exporter.go:>
+Dec 09 07:54:00 ip-172-31-17-30 node_exporter[4068]: ts=2023-12-09T07:54:00.833Z caller=node_exporter.go:>
+Dec 09 07:54:00 ip-172-31-17-30 node_exporter[4068]: ts=2023-12-09T07:54:00.833Z caller=node_exporter.go:>
+Dec 09 07:54:00 ip-172-31-17-30 node_exporter[4068]: ts=2023-12-09T07:54:00.833Z caller=node_exporter.go:>
+Dec 09 07:54:00 ip-172-31-17-30 node_exporter[4068]: ts=2023-12-09T07:54:00.834Z caller=tls_config.go:274>
+Dec 09 07:54:00 ip-172-31-17-30 node_exporter[4068]: ts=2023-12-09T07:54:00.834Z caller=tls_config.go:277>
+lines 1-20/20 (END)
+^C
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# docker run -d --name=cadvisor --network=host --privileged -v /:/rootfs:ro -v /var/run:/var/run:rw -v /sys:/sys:ro -v /var/lib/docker/:/var/lib/docker:ro google/cadvisor:latest
+docker: Error response from daemon: Conflict. The container name "/cadvisor" is already in use by container "b88c1e942a10395ef9c2a02a93a57af7c62134b7b72fc6564b583ec88e2cba38". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# docker ps
+CONTAINER ID   IMAGE                                   COMMAND                  CREATED         STATUS         PORTS                                       NAMES
+0ec88a0387a6   prom/prometheus                         "/bin/prometheus --c…"   4 minutes ago   Up 4 minutes   0.0.0.0:9090->9090/tcp, :::9090->9090/tcp   prometheus
+42f9d7c375aa   irehankhan/random-textfile-client:1.0   "python ./client.py"     2 hours ago     Up 2 hours     0.0.0.0:80->80/tcp, :::80->80/tcp           textfile-client-container
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# docker ps -a
+CONTAINER ID   IMAGE                                   COMMAND                  CREATED         STATUS                       PORTS                                       NAMES
+0ec88a0387a6   prom/prometheus                         "/bin/prometheus --c…"   4 minutes ago   Up 4 minutes                 0.0.0.0:9090->9090/tcp, :::9090->9090/tcp   prometheus
+b88c1e942a10   google/cadvisor:latest                  "/usr/bin/cadvisor -…"   7 minutes ago   Exited (255) 7 minutes ago                                               cadvisor
+42f9d7c375aa   irehankhan/random-textfile-client:1.0   "python ./client.py"     2 hours ago     Up 2 hours                   0.0.0.0:80->80/tcp, :::80->80/tcp           textfile-client-container
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# docker rm b8
+b8
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# docker run -d --name=cadvisor --network=host --privileged -v /:/rootfs:ro -v /var/run:/var/run:rw -v /sys:/sys:ro -v /var/lib/docker/:/var/lib/docker:ro google/cadvisor:latest
+210e2a696ecaeccf6682ab019fb10248edf8171e808f8cdbbd2a94517c77299a
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# docker ps
+CONTAINER ID   IMAGE                                   COMMAND                  CREATED         STATUS         PORTS                                       NAMES
+0ec88a0387a6   prom/prometheus                         "/bin/prometheus --c…"   4 minutes ago   Up 4 minutes   0.0.0.0:9090->9090/tcp, :::9090->9090/tcp   prometheus
+42f9d7c375aa   irehankhan/random-textfile-client:1.0   "python ./client.py"     2 hours ago     Up 2 hours     0.0.0.0:80->80/tcp, :::80->80/tcp           textfile-client-container
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# docker stop 0e
+0e
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# docker rm 0e
+0e
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# ls
+Dockerfile  client.py            node_exporter-1.7.0.linux-amd64         prometheus.yml    terraform
+LICENSE     docker-compose.yaml  node_exporter-1.7.0.linux-amd64.tar.gz  requirements.txt
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# nano prometheus.yml 
+.git/                                   node_exporter-1.7.0.linux-amd64/
+.gitignore                              node_exporter-1.7.0.linux-amd64.tar.gz
+Dockerfile                              prometheus.yml
+LICENSE                                 requirements.txt
+client.py                               terraform/
+docker-compose.yaml                     
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# nano prometheus.yml
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# nano prometheus.yml
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# o
+^[[Ao: command not found
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# nano prometheus.yml
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# docker run -d --name prometheus -p 9090:9090 --network prometheus-net -v /home/ubuntu/random-text-client/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
+7fc3ebe53d2e9e7c4bc5746e0c6724d7c38a381a80ad71572a99d27684eb36b7
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# docker run -d --name=cadvisor --network=host --privileged -v /:/rootfs:ro -v /var/run:/var/run:rw -v /sys:/sys:ro -v /var/lib/docker/:/var/lib/docker:ro google/cadvisor:latest
+docker: Error response from daemon: Conflict. The container name "/cadvisor" is already in use by container "210e2a696ecaeccf6682ab019fb10248edf8171e808f8cdbbd2a94517c77299a". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# docker ps -a
+CONTAINER ID   IMAGE                                   COMMAND                  CREATED          STATUS                        PORTS                               NAMES
+7fc3ebe53d2e   prom/prometheus                         "/bin/prometheus --c…"   15 seconds ago   Exited (2) 14 seconds ago                                         prometheus
+210e2a696eca   google/cadvisor:latest                  "/usr/bin/cadvisor -…"   21 minutes ago   Exited (255) 21 minutes ago                                       cadvisor
+42f9d7c375aa   irehankhan/random-textfile-client:1.0   "python ./client.py"     3 hours ago      Up 3 hours                    0.0.0.0:80->80/tcp, :::80->80/tcp   textfile-client-container
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# docker rm 21
+21
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# docker run -d --name=cadvisor --network=host --privileged -v /:/rootfs:ro -v /var/run:/var/run:rw -v /sys:/sys:ro -v /var/lib/docker/:/var/lib/docker:ro google/cadvisor:latest
+f5f67ace057e3813c9ae9930d4d3fd78eeb9c2f71ce0c2fa66676d70ccf6b0bd
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# docker ps
+CONTAINER ID   IMAGE                                   COMMAND                CREATED       STATUS       PORTS                               NAMES
+42f9d7c375aa   irehankhan/random-textfile-client:1.0   "python ./client.py"   3 hours ago   Up 3 hours   0.0.0.0:80->80/tcp, :::80->80/tcp   textfile-client-container
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# docker ps -a
+CONTAINER ID   IMAGE                                   COMMAND                  CREATED              STATUS                            PORTS                               NAMES
+f5f67ace057e   google/cadvisor:latest                  "/usr/bin/cadvisor -…"   About a minute ago   Exited (255) About a minute ago                                       cadvisor
+7fc3ebe53d2e   prom/prometheus                         "/bin/prometheus --c…"   About a minute ago   Exited (2) About a minute ago                                         prometheus
+42f9d7c375aa   irehankhan/random-textfile-client:1.0   "python ./client.py"     3 hours ago          Up 3 hours                        0.0.0.0:80->80/tcp, :::80->80/tcp   textfile-client-container
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# 7f
+7f: command not found
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# docker rm 7f
+7f
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# nano prometheus.yml 
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# docker run -d --name prometheus -p 9090:9090 --network prometheus-net -v /home/ubuntu/random-text-client/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
+dc0bb587d9498adced77161aac095efc7c991e0e30d2d9284db08d0ead4517eb
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# docker ps
+CONTAINER ID   IMAGE                                   COMMAND                  CREATED         STATUS         PORTS                                       NAMES
+dc0bb587d949   prom/prometheus                         "/bin/prometheus --c…"   7 seconds ago   Up 6 seconds   0.0.0.0:9090->9090/tcp, :::9090->9090/tcp   prometheus
+42f9d7c375aa   irehankhan/random-textfile-client:1.0   "python ./client.py"     3 hours ago     Up 3 hours     0.0.0.0:80->80/tcp, :::80->80/tcp           textfile-client-container
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# docker ps | grep cadvisor
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# docker stats
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.02%     31.25MiB / 949.7MiB   3.29%     4.8MB / 3.93MB    1.63MB / 6.78MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.02%     31.25MiB / 949.7MiB   3.29%     4.8MB / 3.93MB    1.63MB / 6.78MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     31.25MiB / 949.7MiB   3.29%     4.8MB / 3.93MB    1.63MB / 6.78MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     31.25MiB / 949.7MiB   3.29%     4.8MB / 3.93MB    1.63MB / 6.78MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     31.25MiB / 949.7MiB   3.29%     4.8MB / 3.93MB    1.63MB / 6.79MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     31.25MiB / 949.7MiB   3.29%     4.8MB / 3.93MB    1.63MB / 6.79MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.02%     31.25MiB / 949.7MiB   3.29%     4.8MB / 3.93MB    1.63MB / 6.79MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.02%     31.25MiB / 949.7MiB   3.29%     4.8MB / 3.93MB    1.63MB / 6.79MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.11%     31.73MiB / 949.7MiB   3.34%     4.8MB / 3.93MB    2.13MB / 6.79MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.11%     31.73MiB / 949.7MiB   3.34%     4.8MB / 3.93MB    2.13MB / 6.79MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     31.73MiB / 949.7MiB   3.34%     4.8MB / 3.93MB    2.13MB / 6.79MB   7
+42f9d7c375aa   textfile-client-container   0.15%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     31.73MiB / 949.7MiB   3.34%     4.8MB / 3.93MB    2.13MB / 6.79MB   7
+42f9d7c375aa   textfile-client-container   0.15%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     31.73MiB / 949.7MiB   3.34%     4.8MB / 3.93MB    2.13MB / 6.79MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     31.73MiB / 949.7MiB   3.34%     4.8MB / 3.93MB    2.13MB / 6.79MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.23%     31.73MiB / 949.7MiB   3.34%     4.81MB / 3.93MB   2.13MB / 6.79MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.23%     31.73MiB / 949.7MiB   3.34%     4.81MB / 3.93MB   2.13MB / 6.79MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.19%     31.73MiB / 949.7MiB   3.34%     4.81MB / 3.93MB   2.13MB / 6.79MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.19%     31.73MiB / 949.7MiB   3.34%     4.81MB / 3.93MB   2.13MB / 6.79MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+dc0bb587d949   prometheus                  0.00%     31.73MiB / 949.7MiB   3.34%     4.81MB / 3.93MB   2.13MB / 6.8MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB   3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+dc0bb587d949   prometheus                  0.00%     31.73MiB / 949.7MiB   3.34%     4.81MB / 3.93MB   2.13MB / 6.8MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB   3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+dc0bb587d949   prometheus                  0.00%     31.73MiB / 949.7MiB   3.34%     4.81MB / 3.93MB   2.13MB / 6.8MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB   3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+dc0bb587d949   prometheus                  0.00%     31.73MiB / 949.7MiB   3.34%     4.81MB / 3.93MB   2.13MB / 6.8MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB   3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+dc0bb587d949   prometheus                  0.00%     31.73MiB / 949.7MiB   3.34%     4.81MB / 3.93MB   2.13MB / 6.8MB   7
+42f9d7c375aa   textfile-client-container   0.15%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB   3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+dc0bb587d949   prometheus                  0.00%     31.73MiB / 949.7MiB   3.34%     4.81MB / 3.93MB   2.13MB / 6.8MB   7
+42f9d7c375aa   textfile-client-container   0.15%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB   3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+dc0bb587d949   prometheus                  1.52%     33.41MiB / 949.7MiB   3.52%     4.81MB / 3.94MB   2.13MB / 6.8MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB   3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+dc0bb587d949   prometheus                  1.52%     33.41MiB / 949.7MiB   3.52%     4.81MB / 3.94MB   2.13MB / 6.8MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB   3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+dc0bb587d949   prometheus                  0.01%     33.41MiB / 949.7MiB   3.52%     4.81MB / 3.94MB   2.13MB / 6.8MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB   3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+dc0bb587d949   prometheus                  0.01%     33.41MiB / 949.7MiB   3.52%     4.81MB / 3.94MB   2.13MB / 6.8MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB   3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+dc0bb587d949   prometheus                  0.00%     33.41MiB / 949.7MiB   3.52%     4.81MB / 3.94MB   2.13MB / 6.8MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB   3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+dc0bb587d949   prometheus                  0.00%     33.41MiB / 949.7MiB   3.52%     4.81MB / 3.94MB   2.13MB / 6.8MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB   3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+dc0bb587d949   prometheus                  0.00%     33.41MiB / 949.7MiB   3.52%     4.81MB / 3.94MB   2.13MB / 6.8MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB   3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+dc0bb587d949   prometheus                  0.00%     33.41MiB / 949.7MiB   3.52%     4.81MB / 3.94MB   2.13MB / 6.8MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB   3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+dc0bb587d949   prometheus                  0.00%     33.41MiB / 949.7MiB   3.52%     4.81MB / 3.94MB   2.13MB / 6.8MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB   3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+dc0bb587d949   prometheus                  0.00%     33.41MiB / 949.7MiB   3.52%     4.81MB / 3.94MB   2.13MB / 6.8MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB   3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.41MiB / 949.7MiB   3.52%     4.81MB / 3.94MB   2.13MB / 6.82MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.41MiB / 949.7MiB   3.52%     4.81MB / 3.94MB   2.13MB / 6.82MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.03%     33.41MiB / 949.7MiB   3.52%     4.81MB / 3.94MB   2.13MB / 6.82MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.03%     33.41MiB / 949.7MiB   3.52%     4.81MB / 3.94MB   2.13MB / 6.82MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.06%     33.41MiB / 949.7MiB   3.52%     4.81MB / 3.94MB   2.13MB / 6.82MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.06%     33.41MiB / 949.7MiB   3.52%     4.81MB / 3.94MB   2.13MB / 6.82MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.41MiB / 949.7MiB   3.52%     4.81MB / 3.94MB   2.13MB / 6.82MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.41MiB / 949.7MiB   3.52%     4.81MB / 3.94MB   2.13MB / 6.82MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.41MiB / 949.7MiB   3.52%     4.81MB / 3.94MB   2.13MB / 6.82MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.41MiB / 949.7MiB   3.52%     4.81MB / 3.94MB   2.13MB / 6.82MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.22%     33.42MiB / 949.7MiB   3.52%     4.82MB / 3.94MB   2.13MB / 6.82MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.22%     33.42MiB / 949.7MiB   3.52%     4.82MB / 3.94MB   2.13MB / 6.82MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.01%     33.42MiB / 949.7MiB   3.52%     4.82MB / 3.94MB   2.13MB / 6.82MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.01%     33.42MiB / 949.7MiB   3.52%     4.82MB / 3.94MB   2.13MB / 6.82MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.42MiB / 949.7MiB   3.52%     4.82MB / 3.94MB   2.13MB / 6.82MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.42MiB / 949.7MiB   3.52%     4.82MB / 3.94MB   2.13MB / 6.82MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.42MiB / 949.7MiB   3.52%     4.82MB / 3.94MB   2.13MB / 6.82MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.42MiB / 949.7MiB   3.52%     4.82MB / 3.94MB   2.13MB / 6.82MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.42MiB / 949.7MiB   3.52%     4.82MB / 3.94MB   2.13MB / 6.82MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.42MiB / 949.7MiB   3.52%     4.82MB / 3.94MB   2.13MB / 6.82MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.61%     33.42MiB / 949.7MiB   3.52%     4.82MB / 3.94MB   2.13MB / 6.82MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.61%     33.42MiB / 949.7MiB   3.52%     4.82MB / 3.94MB   2.13MB / 6.82MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.02%     33.42MiB / 949.7MiB   3.52%     4.82MB / 3.94MB   2.13MB / 6.82MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.02%     33.42MiB / 949.7MiB   3.52%     4.82MB / 3.94MB   2.13MB / 6.82MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.42MiB / 949.7MiB   3.52%     4.82MB / 3.94MB   2.13MB / 6.82MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.42MiB / 949.7MiB   3.52%     4.82MB / 3.94MB   2.13MB / 6.82MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.42MiB / 949.7MiB   3.52%     4.82MB / 3.94MB   2.13MB / 6.82MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.42MiB / 949.7MiB   3.52%     4.82MB / 3.94MB   2.13MB / 6.82MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.42MiB / 949.7MiB   3.52%     4.82MB / 3.94MB   2.13MB / 6.82MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.42MiB / 949.7MiB   3.52%     4.82MB / 3.94MB   2.13MB / 6.82MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.42MiB / 949.7MiB   3.52%     4.82MB / 3.94MB   2.13MB / 6.83MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.42MiB / 949.7MiB   3.52%     4.82MB / 3.94MB   2.13MB / 6.83MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.06%     33.42MiB / 949.7MiB   3.52%     4.82MB / 3.94MB   2.13MB / 6.83MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.06%     33.42MiB / 949.7MiB   3.52%     4.82MB / 3.94MB   2.13MB / 6.83MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.42MiB / 949.7MiB   3.52%     4.82MB / 3.94MB   2.13MB / 6.83MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.42MiB / 949.7MiB   3.52%     4.82MB / 3.94MB   2.13MB / 6.83MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.42MiB / 949.7MiB   3.52%     4.82MB / 3.94MB   2.13MB / 6.83MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.42MiB / 949.7MiB   3.52%     4.82MB / 3.94MB   2.13MB / 6.83MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.42MiB / 949.7MiB   3.52%     4.82MB / 3.94MB   2.13MB / 6.83MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.42MiB / 949.7MiB   3.52%     4.82MB / 3.94MB   2.13MB / 6.83MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.24%     33.42MiB / 949.7MiB   3.52%     4.84MB / 3.94MB   2.13MB / 6.83MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.24%     33.42MiB / 949.7MiB   3.52%     4.84MB / 3.94MB   2.13MB / 6.83MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.04%     33.42MiB / 949.7MiB   3.52%     4.84MB / 3.94MB   2.13MB / 6.84MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.04%     33.42MiB / 949.7MiB   3.52%     4.84MB / 3.94MB   2.13MB / 6.84MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.42MiB / 949.7MiB   3.52%     4.84MB / 3.94MB   2.13MB / 6.84MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.42MiB / 949.7MiB   3.52%     4.84MB / 3.94MB   2.13MB / 6.84MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.42MiB / 949.7MiB   3.52%     4.84MB / 3.94MB   2.13MB / 6.84MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.42MiB / 949.7MiB   3.52%     4.84MB / 3.94MB   2.13MB / 6.84MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.42MiB / 949.7MiB   3.52%     4.84MB / 3.94MB   2.13MB / 6.84MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.42MiB / 949.7MiB   3.52%     4.84MB / 3.94MB   2.13MB / 6.84MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.59%     33.54MiB / 949.7MiB   3.53%     4.84MB / 3.94MB   2.13MB / 6.84MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.59%     33.54MiB / 949.7MiB   3.53%     4.84MB / 3.94MB   2.13MB / 6.84MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.95%     33.71MiB / 949.7MiB   3.55%     4.84MB / 3.94MB   2.13MB / 6.84MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.95%     33.71MiB / 949.7MiB   3.55%     4.84MB / 3.94MB   2.13MB / 6.84MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.71MiB / 949.7MiB   3.55%     4.84MB / 3.94MB   2.13MB / 6.84MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.71MiB / 949.7MiB   3.55%     4.84MB / 3.94MB   2.13MB / 6.84MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.71MiB / 949.7MiB   3.55%     4.84MB / 3.94MB   2.13MB / 6.84MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.71MiB / 949.7MiB   3.55%     4.84MB / 3.94MB   2.13MB / 6.84MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.71MiB / 949.7MiB   3.55%     4.84MB / 3.94MB   2.13MB / 6.84MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.71MiB / 949.7MiB   3.55%     4.84MB / 3.94MB   2.13MB / 6.84MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.71MiB / 949.7MiB   3.55%     4.84MB / 3.94MB   2.13MB / 6.85MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.71MiB / 949.7MiB   3.55%     4.84MB / 3.94MB   2.13MB / 6.85MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.08%     33.71MiB / 949.7MiB   3.55%     4.84MB / 3.94MB   2.13MB / 6.85MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.08%     33.71MiB / 949.7MiB   3.55%     4.84MB / 3.94MB   2.13MB / 6.85MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.71MiB / 949.7MiB   3.55%     4.84MB / 3.94MB   2.13MB / 6.85MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.71MiB / 949.7MiB   3.55%     4.84MB / 3.94MB   2.13MB / 6.85MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.71MiB / 949.7MiB   3.55%     4.84MB / 3.94MB   2.13MB / 6.85MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.71MiB / 949.7MiB   3.55%     4.84MB / 3.94MB   2.13MB / 6.85MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.71MiB / 949.7MiB   3.55%     4.84MB / 3.94MB   2.13MB / 6.85MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.71MiB / 949.7MiB   3.55%     4.84MB / 3.94MB   2.13MB / 6.85MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.23%     33.72MiB / 949.7MiB   3.55%     4.85MB / 3.94MB   2.13MB / 6.85MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.23%     33.72MiB / 949.7MiB   3.55%     4.85MB / 3.94MB   2.13MB / 6.85MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.01%     33.71MiB / 949.7MiB   3.55%     4.85MB / 3.94MB   2.13MB / 6.86MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.01%     33.71MiB / 949.7MiB   3.55%     4.85MB / 3.94MB   2.13MB / 6.86MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.71MiB / 949.7MiB   3.55%     4.85MB / 3.94MB   2.13MB / 6.86MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.71MiB / 949.7MiB   3.55%     4.85MB / 3.94MB   2.13MB / 6.86MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.71MiB / 949.7MiB   3.55%     4.85MB / 3.94MB   2.13MB / 6.86MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.71MiB / 949.7MiB   3.55%     4.85MB / 3.94MB   2.13MB / 6.86MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.71MiB / 949.7MiB   3.55%     4.85MB / 3.94MB   2.13MB / 6.86MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.71MiB / 949.7MiB   3.55%     4.85MB / 3.94MB   2.13MB / 6.86MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.63%     33.81MiB / 949.7MiB   3.56%     4.85MB / 3.94MB   2.13MB / 6.86MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.63%     33.81MiB / 949.7MiB   3.56%     4.85MB / 3.94MB   2.13MB / 6.86MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.02%     33.81MiB / 949.7MiB   3.56%     4.85MB / 3.94MB   2.13MB / 6.86MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.02%     33.81MiB / 949.7MiB   3.56%     4.85MB / 3.94MB   2.13MB / 6.86MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.85MB / 3.94MB   2.13MB / 6.86MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.85MB / 3.94MB   2.13MB / 6.86MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.85MB / 3.94MB   2.13MB / 6.86MB   7
+42f9d7c375aa   textfile-client-container   0.15%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.85MB / 3.94MB   2.13MB / 6.86MB   7
+42f9d7c375aa   textfile-client-container   0.15%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.85MB / 3.94MB   2.13MB / 6.86MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.85MB / 3.94MB   2.13MB / 6.86MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.01%     33.81MiB / 949.7MiB   3.56%     4.85MB / 3.94MB   2.13MB / 6.86MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.01%     33.81MiB / 949.7MiB   3.56%     4.85MB / 3.94MB   2.13MB / 6.86MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.05%     33.81MiB / 949.7MiB   3.56%     4.85MB / 3.94MB   2.13MB / 6.86MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.05%     33.81MiB / 949.7MiB   3.56%     4.85MB / 3.94MB   2.13MB / 6.86MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.85MB / 3.94MB   2.13MB / 6.86MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.85MB / 3.94MB   2.13MB / 6.86MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.85MB / 3.94MB   2.13MB / 6.86MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.85MB / 3.94MB   2.13MB / 6.86MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.85MB / 3.94MB   2.13MB / 6.86MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.85MB / 3.94MB   2.13MB / 6.86MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.26%     33.81MiB / 949.7MiB   3.56%     4.86MB / 3.95MB   2.13MB / 6.86MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.26%     33.81MiB / 949.7MiB   3.56%     4.86MB / 3.95MB   2.13MB / 6.86MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.16%     33.81MiB / 949.7MiB   3.56%     4.86MB / 3.95MB   2.13MB / 6.87MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.16%     33.81MiB / 949.7MiB   3.56%     4.86MB / 3.95MB   2.13MB / 6.87MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.86MB / 3.95MB   2.13MB / 6.87MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.86MB / 3.95MB   2.13MB / 6.87MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.86MB / 3.95MB   2.13MB / 6.87MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.86MB / 3.95MB   2.13MB / 6.87MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.86MB / 3.95MB   2.13MB / 6.87MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.86MB / 3.95MB   2.13MB / 6.87MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.56%     33.81MiB / 949.7MiB   3.56%     4.86MB / 3.95MB   2.13MB / 6.87MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.56%     33.81MiB / 949.7MiB   3.56%     4.86MB / 3.95MB   2.13MB / 6.87MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.86MB / 3.95MB   2.13MB / 6.87MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.86MB / 3.95MB   2.13MB / 6.87MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.86MB / 3.95MB   2.13MB / 6.87MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.86MB / 3.95MB   2.13MB / 6.87MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.86MB / 3.95MB   2.13MB / 6.87MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.86MB / 3.95MB   2.13MB / 6.87MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.86MB / 3.95MB   2.13MB / 6.87MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.86MB / 3.95MB   2.13MB / 6.87MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.03%     33.81MiB / 949.7MiB   3.56%     4.86MB / 3.95MB   2.13MB / 6.88MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.03%     33.81MiB / 949.7MiB   3.56%     4.86MB / 3.95MB   2.13MB / 6.88MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.05%     33.81MiB / 949.7MiB   3.56%     4.86MB / 3.95MB   2.13MB / 6.88MB   7
+42f9d7c375aa   textfile-client-container   0.15%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.05%     33.81MiB / 949.7MiB   3.56%     4.86MB / 3.95MB   2.13MB / 6.88MB   7
+42f9d7c375aa   textfile-client-container   0.15%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.86MB / 3.95MB   2.13MB / 6.88MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.86MB / 3.95MB   2.13MB / 6.88MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.86MB / 3.95MB   2.13MB / 6.88MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.86MB / 3.95MB   2.13MB / 6.88MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.22%     33.81MiB / 949.7MiB   3.56%     4.87MB / 3.95MB   2.13MB / 6.88MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.22%     33.81MiB / 949.7MiB   3.56%     4.87MB / 3.95MB   2.13MB / 6.88MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.02%     33.81MiB / 949.7MiB   3.56%     4.87MB / 3.95MB   2.13MB / 6.88MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.02%     33.81MiB / 949.7MiB   3.56%     4.87MB / 3.95MB   2.13MB / 6.88MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.87MB / 3.95MB   2.13MB / 6.89MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.87MB / 3.95MB   2.13MB / 6.89MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.87MB / 3.95MB   2.13MB / 6.89MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.87MB / 3.95MB   2.13MB / 6.89MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.87MB / 3.95MB   2.13MB / 6.89MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.87MB / 3.95MB   2.13MB / 6.89MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.63%     33.81MiB / 949.7MiB   3.56%     4.87MB / 3.95MB   2.13MB / 6.89MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.63%     33.81MiB / 949.7MiB   3.56%     4.87MB / 3.95MB   2.13MB / 6.89MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.02%     33.81MiB / 949.7MiB   3.56%     4.87MB / 3.95MB   2.13MB / 6.89MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.02%     33.81MiB / 949.7MiB   3.56%     4.87MB / 3.95MB   2.13MB / 6.89MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.87MB / 3.95MB   2.13MB / 6.89MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.87MB / 3.95MB   2.13MB / 6.89MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.87MB / 3.95MB   2.13MB / 6.89MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.87MB / 3.95MB   2.13MB / 6.89MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.87MB / 3.95MB   2.13MB / 6.89MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.87MB / 3.95MB   2.13MB / 6.89MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.87MB / 3.95MB   2.13MB / 6.89MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.87MB / 3.95MB   2.13MB / 6.89MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+dc0bb587d949   prometheus                  0.02%     33.81MiB / 949.7MiB   3.56%     4.87MB / 3.95MB   2.13MB / 6.9MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB   3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+dc0bb587d949   prometheus                  0.02%     33.81MiB / 949.7MiB   3.56%     4.87MB / 3.95MB   2.13MB / 6.9MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB   3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+dc0bb587d949   prometheus                  0.05%     33.81MiB / 949.7MiB   3.56%     4.87MB / 3.95MB   2.13MB / 6.9MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB   3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+dc0bb587d949   prometheus                  0.05%     33.81MiB / 949.7MiB   3.56%     4.87MB / 3.95MB   2.13MB / 6.9MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB   3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.87MB / 3.95MB   2.13MB / 6.9MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB   3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.87MB / 3.95MB   2.13MB / 6.9MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB   3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.87MB / 3.95MB   2.13MB / 6.9MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB   3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.87MB / 3.95MB   2.13MB / 6.9MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB   3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+dc0bb587d949   prometheus                  0.22%     33.81MiB / 949.7MiB   3.56%     4.88MB / 3.95MB   2.13MB / 6.9MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB   3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+dc0bb587d949   prometheus                  0.22%     33.81MiB / 949.7MiB   3.56%     4.88MB / 3.95MB   2.13MB / 6.9MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB   3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+dc0bb587d949   prometheus                  0.05%     33.81MiB / 949.7MiB   3.56%     4.88MB / 3.95MB   2.13MB / 6.9MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB   3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+dc0bb587d949   prometheus                  0.05%     33.81MiB / 949.7MiB   3.56%     4.88MB / 3.95MB   2.13MB / 6.9MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB   3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.88MB / 3.95MB   2.13MB / 6.91MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.88MB / 3.95MB   2.13MB / 6.91MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.88MB / 3.95MB   2.13MB / 6.91MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.88MB / 3.95MB   2.13MB / 6.91MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.88MB / 3.95MB   2.13MB / 6.91MB   7
+42f9d7c375aa   textfile-client-container   0.15%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.88MB / 3.95MB   2.13MB / 6.91MB   7
+42f9d7c375aa   textfile-client-container   0.15%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.60%     33.81MiB / 949.7MiB   3.56%     4.88MB / 3.95MB   2.13MB / 6.91MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.60%     33.81MiB / 949.7MiB   3.56%     4.88MB / 3.95MB   2.13MB / 6.91MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.02%     33.81MiB / 949.7MiB   3.56%     4.88MB / 3.95MB   2.13MB / 6.91MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.02%     33.81MiB / 949.7MiB   3.56%     4.88MB / 3.95MB   2.13MB / 6.91MB   7
+42f9d7c375aa   textfile-client-container   0.13%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.88MB / 3.95MB   2.13MB / 6.91MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.88MB / 3.95MB   2.13MB / 6.91MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.88MB / 3.95MB   2.13MB / 6.91MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.88MB / 3.95MB   2.13MB / 6.91MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.88MB / 3.95MB   2.13MB / 6.91MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.88MB / 3.95MB   2.13MB / 6.91MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+dc0bb587d949   prometheus                  0.00%     33.81MiB / 949.7MiB   3.56%     4.88MB / 3.95MB   2.13MB / 6.91MB   7
+42f9d7c375aa   textfile-client-container   0.14%     40.89MiB / 949.7MiB   4.31%     37.5kB / 73.4kB   2.04MB / 246kB    3
+^C
+root@ip-172-31-17-30:/home/ubuntu/random-text-client# 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
