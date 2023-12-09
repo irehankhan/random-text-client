@@ -44,7 +44,8 @@ jobs:
             curl -X POST \
               -H "Content-Type: application/json" \
               -d '{
-                "to": "irehankhan@yahoo.com",
+                "to": "tijogek337@getmola.com",
                 "subject": "GitHub Action Notification",
                 "body": "The GitHub Action workflow has been triggered on the main branch."
-              }'
+              }' \
+              https://temp-mail.org/en/    
