@@ -38,3 +38,13 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: irehankhan/random-textfile-client:1.0
+
+      - name: Send Email Notification
+        run: |
+            curl -X POST \
+              -H "Content-Type: application/json" \
+              -d '{
+                "to": "irehankhan@yahoo.com",
+                "subject": "GitHub Action Notification",
+                "body": "The GitHub Action workflow has been triggered on the main branch."
+              }'
